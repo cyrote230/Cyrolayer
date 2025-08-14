@@ -1,101 +1,45 @@
-CryoDelta Specification (Draft)
 
-1. Overview
+# CryoDelta Specification (Draft)
 
-CryoDelta is a monitoring layer within CryoLayer that focuses on transaction delta analysis.
-Its primary role is to compare disclosed intents captured by OIDP (Offchain Intent Disclosure Protocol) with the actual on-chain outcomes. By doing this, CryoDelta provides a neutral, fact-based validation of whether an intent was executed as planned, partially modified, or completely abandoned.
+## Overview
+CryoDelta is a fundamental module of CryoLayer that validates and analyzes the difference (*delta*) between disclosed intents from OIDP and the actual blockchain outcomes.  
+It is designed to bring **real-time accountability** into blockchain ecosystems by showing whether disclosed transaction intents are faithfully executed or diverge in practice.  
+This system provides value for institutions, exchanges, and end-users by reducing the information gap in high-volume transaction flows.
 
-2. Purpose
+## Objectives
+- **Transparency**: Allow the ecosystem to see whether large disclosed intents are executed as promised.  
+- **Discrepancy Detection**: Highlight mismatches between intent and execution, whether partial, delayed, or completely failed.  
+- **Neutral Data Feed**: Deliver raw, factual information without prediction, speculation, or interpretive bias.  
+- **Ecosystem Utility**: Provide monitoring tools for regulators, exchanges, and protocols to build safer financial environments.
 
-To create a trustless validation mechanism for disclosed intents.
+## Core Features
+- **Delta Tracking Engine**: Monitors and calculates the exact gap between disclosed intent and real execution.  
+- **Execution Validation**: Flags whether an intent is fulfilled in full, partially, or not at all.  
+- **Timeline Synchronization**: Tracks delays between disclosed intent and actual settlement on-chain.  
+- **Cross-Chain Compatibility**: Operates on multiple L1 and L2 networks, without altering their consensus or performance.  
+- **Auditable Records**: Keeps immutable logs of deltas for reference, compliance, and analytics.  
 
-To reduce information asymmetry between large market participants and the public.
+## Example Workflow
+1. A transaction intent is disclosed via OIDP (e.g., transfer ≥100 ETH).  
+2. CryoDelta observes the relevant blockchain(s) to verify if and when the transaction occurs.  
+3. The system categorizes the outcome:
+   - **Match**: Executed exactly as intended.  
+   - **Partial**: Executed partially (smaller size or delayed).  
+   - **Mismatch**: Not executed or executed with different parameters.  
+4. Results are stored and made available through public dashboards, institutional APIs, or private feeds.  
 
-To help institutions, exchanges, and protocols detect unusual patterns in execution vs. intent.
+## Use Cases
+- **Exchanges (CEX/DEX)**: Monitor whale activity to manage liquidity and reduce risks of sudden inflows/outflows.  
+- **Institutions & Funds**: Gain early insight into execution reliability of large counterparties.  
+- **Regulators & Compliance**: Access transparent, auditable trails of intent vs. execution.  
+- **Retail Users**: Increase trust by validating whether disclosed market signals align with reality.  
 
-To enable real-time transparency that strengthens overall market integrity.
-
-
-3. Core Functions
-
-1. Delta Detection
-
-Tracks the difference between intended and executed transactions.
-
-Flags mismatches such as canceled, delayed, or altered transactions.
-
-
-
-2. Outcome Confirmation
-
-Validates whether the disclosed intent has been fully realized.
-
-Provides a timestamped proof of match/mismatch.
-
-
-
-3. Neutral Reporting
-
-Data is reported as facts only, without interpretation or market prediction.
-
-Ensures credibility and neutrality for all ecosystem participants.
-
-
-
-
-4. Integration
-
-Can be integrated with both L1 and L2 blockchains via OIDP feeds.
-
-Supports real-time API endpoints for institutional partners.
-
-Offers configurable delay windows for public access vs. private access.
-
-
-5. Key Features
-
-Transparency Layer: monitors intent vs. realization at scale.
-
-High-Speed Processing: designed to handle large transaction volumes in real-time.
-
-Institutional Utility: helps exchanges, regulators, and protocols maintain fair visibility.
-
-Scalable Design: built to integrate into multiple chains without disrupting their operations.
-
-
-6. Example Workflow
-
-1. OIDP detects an intent of 500 ETH transfer to an exchange.
-
-
-2. CryoDelta listens for the on-chain execution.
-
-
-3. If the full amount is executed, CryoDelta confirms a match.
-
-
-4. If only 300 ETH is executed or intent is canceled, CryoDelta flags a mismatch.
-
-
-5. The result is published in a neutral, fact-based report.
-
-
-
-7. Roadmap (Draft)
-
-Phase 1: Core architecture design and internal testing.
-
-Phase 2: Public demo with selected real-time feeds.
-
-Phase 3: Partnerships with exchanges and chain ecosystems.
-
-Phase 4: Enterprise-ready deployment with API services.
-
-
+## Security & Neutrality
+CryoDelta does not interfere with the target chain and does not alter transaction execution.  
+It functions as an **observer module**, ensuring neutrality, reliability, and factual reporting.  
+All outputs are **non-predictive**: the system never suggests future price movement or market direction—it only presents verified data.
 
 ---
 
-This document is a draft and subject to continuous updates as CryoDelta evolves.
-
-
+CryoDelta ensures **trustless accountability** in blockchain ecosystems by bridging the gap between declared intentions and actual outcomes.
 ---
